@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification App</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --header-color: #8b949e;
+            --border-color: #30363d;
+            --primary-color: #238636;
+            --primary-hover-color: #2ea043;
+            --code-bg-color: #161b22;
+            --accent-color: #58a6ff;
+            --error-color: #f85149;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+        
+        /* Replaced h1 with ASCII art styling */
+        .ascii-art {
+            color: var(--text-color);
+            text-align: center;
+            padding-bottom: 10px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 14px; /* Same size as the input/output fields */
+            line-height: 1.2; /* Tighter line height for ASCII art */
+            margin: 0 auto;
+            white-space: pre; /* Preserve whitespace exactly */
+            overflow-x: auto; /* Handle overflow on small screens */
+            max-width: 100%;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        label {
+            font-weight: 600;
+        }
+        
+        textarea {
+            padding: 8px 12px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            line-height: 1.5;
+            background-color: var(--code-bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            resize: none; /* Disable manual resizing */
+            overflow: hidden; /* Hide scrollbar during transition */
+            min-height: 32px; /* Single line height initially */
+            transition: height 0.1s ease;
+            font-size: 14px; /* Match result font size */
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px; /* Space between textarea and button */
+        }
+        
+        button {
+            padding: 5px 16px;
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid rgba(240, 246, 252, 0.1);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            margin-left: auto; /* Push button to the right */
+        }
+        
+        button:hover {
+            background-color: var(--primary-hover-color);
+        }
+        
+        button:disabled {
+            background-color: #1b4b27;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        .result {
+            background-color: var(--code-bg-color);
+            padding: 16px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 14px; /* Consistent font size with input */
+            line-height: 1.5; /* Match textarea line height */
+            overflow-x: auto;
+            min-height: 200px; /* Minimum height to avoid jumping */
+        }
+        
+        .result-container {
+            display: none; /* Initially hidden */
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 0.6em;
+            height: 1em;
+            background-color: var(--text-color);
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+            vertical-align: text-bottom;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .error-text {
+            color: var(--error-color);
+        }
+        
+        .warning-text {
+            color: #f0883e; /* Orange warning color */
+        }
+        
+        .streaming-active .cursor {
+            display: inline-block;
+        }
+        
+        .streaming-complete .cursor {
+            display: none;
+        }
+        
+        h2 {
+            color: var(--header-color);
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+    </style>
+    <script>
+        // Function to auto-resize textarea based on content
+        function autoResizeTextarea(element) {
+            // Reset height to auto to get the correct scrollHeight
+            element.style.height = 'auto';
+            
+            // Calculate the number of lines
+            const lineHeight = parseInt(getComputedStyle(element).lineHeight);
+            const paddingTop = parseInt(getComputedStyle(element).paddingTop);
+            const paddingBottom = parseInt(getComputedStyle(element).paddingBottom);
+            
+            // Get content height + padding (exclude any extra space)
+            const contentHeight = element.scrollHeight;
+            
+            // If empty or single line, use minimal height
+            if (!element.value.trim()) {
+                element.style.height = `${lineHeight + paddingTop + paddingBottom}px`;
+            } else {
+                // Set the height to precise scrollHeight
+                element.style.height = `${contentHeight}px`;
+            }
+        }
+
+        // Initialize after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.getElementById('text_input');
+            const form = document.getElementById('sdgForm');
+            const submitButton = document.getElementById('submitButton');
+            const resultContainer = document.getElementById('resultContainer');
+            const resultDisplay = document.getElementById('resultDisplay');
+            
+            // Event source for SSE
+            let eventSource = null;
+            
+            // Set initial height
+            autoResizeTextarea(textarea);
+            
+            // Auto-resize on input
+            textarea.addEventListener('input', function() {
+                autoResizeTextarea(this);
+            });
+            
+            // Handle form submission with SSE
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Stop normal form submission
+                
+                const textInput = textarea.value.trim();
+                if (!textInput) {
+                    return; // Don't submit if empty
+                }
+                
+                // Save content to session storage
+                sessionStorage.setItem('textareaContent', textInput);
+                
+                // Show loading state
+                submitButton.disabled = true;
+                resultContainer.style.display = 'block';
+                resultDisplay.textContent = '';
+                resultDisplay.classList.add('streaming-active');
+                resultDisplay.classList.remove('streaming-complete');
+                
+                // Add blinking cursor
+                const cursor = document.createElement('span');
+                cursor.className = 'cursor';
+                resultDisplay.appendChild(cursor);
+                
+                // Close existing event source if any
+                if (eventSource) {
+                    eventSource.close();
+                }
+                
+                // Create FormData for POST request
+                const formData = new FormData(form);
+                
+                // Make a fetch request to start the streaming process and get a session ID
+                fetch('/init_stream', {
+                    method: 'POST',
+                    body: formData
+                }).then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                }).then(data => {
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    
+                    // Set up SSE connection with the session ID
+                    const sessionId = data.session_id;
+                    eventSource = new EventSource(`/stream/${sessionId}`);
+                    
+                    // Configure reconnection attempts
+                    let retryCount = 0;
+                    const maxRetries = 3;
+                    
+                    // Handle connection opening
+                    eventSource.addEventListener('open', function() {
+                        // Reset retry count on successful connection
+                        retryCount = 0;
+                    });
+                    
+                    // Handle incoming output events
+                    eventSource.addEventListener('output', function(e) {
+                        // Remove cursor by getting all content except the cursor
+                        resultDisplay.textContent = resultDisplay.textContent.replace(/\n$/, '');
+                        
+                        // Append the new line and cursor
+                        if (resultDisplay.textContent && !resultDisplay.textContent.endsWith('\n')) {
+                            resultDisplay.textContent += '\n';
+                        }
+                        
+                        resultDisplay.textContent += e.data;
+                        
+                        // Ensure cursor is at end
+                        if (!resultDisplay.querySelector('.cursor')) {
+                            const cursor = document.createElement('span');
+                            cursor.className = 'cursor';
+                            resultDisplay.appendChild(cursor);
+                        }
+                        
+                        // Scroll to bottom of result container
+                        resultDisplay.scrollTop = resultDisplay.scrollHeight;
+                    });
+                    
+                    // Handle flush events to ensure immediate display updates
+                    eventSource.addEventListener('flush', function(e) {
+                        // This event is just to force browser to render the update
+                        // No content processing needed
+                    });
+                    
+                    // Handle completion event
+                    eventSource.addEventListener('complete', function(e) {
+                        // Remove streaming state
+                        resultDisplay.classList.remove('streaming-active');
+                        resultDisplay.classList.add('streaming-complete');
+                        
+                        // Remove cursor
+                        const cursor = resultDisplay.querySelector('.cursor');
+                        if (cursor) {
+                            cursor.remove();
+                        }
+                        
+                        // Reset button state
+                        submitButton.disabled = false;
+                        
+                        // Close the event source
+                        if (eventSource) {
+                            eventSource.close();
+                            eventSource = null;
+                        }
+                    });
+                    
+                    // Handle specific error events from server
+                    eventSource.addEventListener('error', function(e) {
+                        console.error('SSE Error:', e);
+                        
+                        // Try to reconnect a few times before giving up
+                        if (retryCount < maxRetries) {
+                            retryCount++;
+                            console.log(`Attempting to reconnect (${retryCount}/${maxRetries})...`);
+                            
+                            // Add a brief message about reconnection
+                            resultDisplay.innerHTML += `<span class="warning-text">\nConnection issue detected. Attempting to reconnect (${retryCount}/${maxRetries})...</span>`;
+                            
+                            // The EventSource will automatically try to reconnect
+                            return;
+                        }
+                        
+                        // If we've reached max retries, show error and give up
+                        resultDisplay.innerHTML += `<span class="error-text">\nConnection error. Please try again. The server may be busy or there might be a connection issue.</span>`;
+                        submitButton.disabled = false;
+                        if (eventSource) {
+                            eventSource.close();
+                            eventSource = null;
+                        }
+                    });
+                    
+                    // Handle explicit server error messages
+                    eventSource.addEventListener('error_message', function(e) {
+                        console.error('Server Error:', e.data);
+                        resultDisplay.innerHTML += `<span class="error-text">\nServer Error: ${e.data}</span>`;
+                        submitButton.disabled = false;
+                        if (eventSource) {
+                            eventSource.close();
+                            eventSource = null;
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultDisplay.innerHTML += `<span class="error-text">\nError: ${error.message}</span>`;
+                    submitButton.disabled = false;
+                });
+            });
+            
+            // Restore content after page reload if there was a previous submission
+            const savedContent = sessionStorage.getItem('textareaContent');
+            if (savedContent) {
+                textarea.value = savedContent;
+                autoResizeTextarea(textarea);
+            }
+            
+            // Clean up on page unload
+            window.addEventListener('beforeunload', function() {
+                if (eventSource) {
+                    eventSource.close();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <pre class="ascii-art">
+
+ ______   ______   _____    ______   ______  ______   ______   ______  
+/\  ___\ /\  __ \ /\  __-. /\  ___\ /\  ___\/\  ___\ /\  ___\ /\__  _\ 
+\ \ \____\ \ \/\ \\ \ \/\ \\ \  __\ \ \  __\\ \  __\ \ \___  \\/_/\ \/ 
+ \ \_____\\ \_____\\ \____- \ \_____\\ \_\   \ \_____\\/\_____\  \ \_\ 
+  \/_____/ \/_____/ \/____/  \/_____/ \/_/    \/_____/ \/_____/   \/_/ 
+
+  
+</pre>
+    
+    <div class="container">
+        <form id="sdgForm">
+            <div class="form-group">
+                <textarea name="text_input" id="text_input" placeholder="Enter your English patent abstract of around 50-200 words here..." rows="1"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" id="submitButton">Identify SDGs</button>
+            </div>
+        </form>
+        
+        <div id="resultContainer" class="result-container">
+            <label for="resultDisplay">Terminal outcome:</label>
+            <div id="resultDisplay" class="result"></div>
+        </div>
+    </div>
+</body>
+</html>

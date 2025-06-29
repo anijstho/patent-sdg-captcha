@@ -1,0 +1,189 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/thomas/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p align="center">
+  <a href="https://captcha.thomasanijs.com/">
+    <img src="captsdga.png" alt="CAPTSDGA" width="288" height="288">
+  </a>
+</p>
+<h1 align="center">CAPTSDGA</h1>
+<p align="center">
+  Completely Automated Public Turing Test to tell Sustainable Development Goals Apart
+</p>
+<h2 id="table-of-contents">Table of Contents </h2>
+<ol>
+<li><a href="#1-project-motivation">Project Motivation</a></li>
+<li><a href="#2-how-to-interact-with-the-code">How to interact with the code</a>
+<ol>
+<li><a href="#21-sdg-classification-model">SDG Classification Model</a></li>
+<li><a href="#22-captcha-tests">CAPTCHA Tests</a></li>
+</ol>
+</li>
+<li><a href="#3-ensemble-approach">Ensemble Approach</a>
+<ol>
+<li><a href="#31-query-models">Query Models</a></li>
+<li><a href="#32-sdgbert">sdgBERT</a></li>
+<li><a href="#33-mistral-llm">Mistral LLM</a></li>
+</ol>
+</li>
+<li><a href="#4-model-training">Model Training</a>
+<ol>
+<li><a href="#41-training-data">Training Data</a></li>
+<li><a href="#42-captcha-responses">CAPTCHA Responses</a></li>
+<li><a href="#43-model-performance">Model Performance</a></li>
+</ol>
+</li>
+<li><a href="#5-conclusions">Conclusions</a></li>
+<li><a href="#6-acknowledgements">Acknowledgements</a></li>
+</ol>
+<h2 id="1-project-motivation">1. Project Motivation </h2>
+<p>The goal of this project is to develop a system that automates the classification of patent data based on its potential contribution to the <a href="https://sdgs.un.org/goals">UN Sustainable Development Goals (SDGs)</a>.<br>
+This project is performed as a submission for the <a href="https://www.epo.org/en/news-events/in-focus/codefest/codefest-spring-2025-classifying-patent-data-sustainable-development">EPO CodeFest Spring 2025 on classifying patent data for sustainable development</a>.</p>
+<p>To enhance the accessibility and strategic use of patent information and to benefit users, special attention is paid for the solution to be:</p>
+<ul>
+<li>
+<p><em><strong>Creative and innovative</strong></em> by building an original solution incorporating challenge-response Turing tests (CAPTCHAs) in the context of sustainable development goals for the first time</p>
+</li>
+<li>
+<p><em><strong>Functional and usable</strong></em> through interacting via simple <a href="https://codefest.thomasanijs.com">classification</a> and <a href="https://captcha.thomasanijs.com">CAPTCHA</a> web apps, providing an ever expanding labeled dataset for analyses and supervised learning</p>
+</li>
+<li>
+<p><em><strong>Well-implemented</strong></em> using iteratively learning ensemble models demonstrated to exceed the performance of all tested existing SDG classification models in patent labeling</p>
+</li>
+<li>
+<p><em><strong>Impactful on sustainable innovation</strong></em> by not only serving patent enthusiasts, but appealing to a broader audience through CAPTCHAs, inspiring more people to contribute to sustainable development</p>
+</li>
+</ul>
+<h2 id="2-how-to-interact-with-the-code">2. How to interact with the code </h2>
+<p>The solution to the SDG classification problem for patent data consists of two distinct parts. Users interested in identifying relevant SDGs from (potential) patents can do so by interacting with the current classification model via a web interface as explained in <a href="#21-sdg-classification-model">Section 2.1</a>.<br>
+People who want to challenge themselves to identify innovations for sustainable development from existing patents can contribute to training of the classification model by playing an online game based on CAPTCHA tests, elaborated in <a href="#22-captcha-tests">Section 2.2</a>.</p>
+<p>The source code of both web applications is shared in the <a href="Source%20Code">Source Code</a> folder.</p>
+<h3 id="21-sdg-classification-model">2.1 SDG Classification Model </h3>
+<p>You can use the latest SDG classification model by providing a patent description on the <a href="https://codefest.thomasanijs.com">classification web app at codefest.thomasanijs.com</a>. The model will then return the final SDGs it has identified from the text input based on the nine underlying SDG classification model outcomes following the <a href="#3-ensemble-approach">Ensemble Approach</a>. The web application will give the most reliable outcome when provided an English patent abstract of around 50 to 200 words, since the model is specifically trained on this type of patent data (see <a href="#41-training-data">Training Data</a>).</p>
+<p>The text is being analysed in ten steps, with the process being indicated live in the terminal output. The steps consist of processing eight SDG classification submodels, applying the <a href="#3-ensemble-approach">ensemble model</a>, and extracting the <a href="#43-model-performance">most predictive</a> model outcomes, respectively. Due to limited capabilities of the current web server, the classification process can take a few minutes depending on the length of the text input.</p>
+<h3 id="22-captcha-tests">2.2 CAPTCHA Tests </h3>
+<p>A key feature of the implemented approach is that the classification model iteratively evolves by using new CAPTCHA answers as additional training input. Everyone can contribute to patent labeling by classifying existing patent abstracts through <a href="https://captcha.thomasanijs.com">CAPTCHA tests on captcha.thomasanijs.com</a>.</p>
+<p>The CAPTCHA tests try to identify whether you are a human or robot based on consensus of your answer with the outcome of the 8 classification submodels. You are requested to select an SDG belonging to the displayed prompt, which describes the practical use of a patent from the <a href="#41-training-data">training data</a> as extracted by the <a href="#33-mistral-llm">Mistral LLM</a>.</p>
+<p>To keep track of the options, only 9 out of the 16 considered SDGs are displayed per prompt. The options are selected based on their relevance to the patent based on the following criteria:</p>
+<ul>
+<li><strong>Consensus</strong>: All SDGs identified by two or more submodels are shown</li>
+<li><strong>Probability</strong>: To end up with nine SDGs, goals are added or removed based on their probability according to the <code>sdgBERT</code> model, leaving out the least probable SDGs</li>
+</ul>
+<p>Since these CAPTCHAs do not grant access to a targeted web page like typical CAPTCHAs, a streak counter is introduced to encourage the player to continue. The goal is to reach a high score by getting as much answers in a row correct. The submitted SDG is rated by its consensus with the 8 submodels in the following manner:</p>
+<ul>
+<li><strong>Correct</strong>: 2 or more submodels agree with the selected SDG; the streak counter will increase by 1</li>
+<li><strong>Not sure</strong>: The selected SDG is found in only one submodel; the streak is retained</li>
+<li><strong>Incorrect</strong>: None of the submodels agree with the selected SDG; the streak is being reset to zero</li>
+</ul>
+<p>In case you think a patent is not related to any of the displayed SDGs, 'None' can be submitted when no SDG is selected. In this case, the maximum number of models positive on any SDG is considered in the following way (effect of the verdict on the streak remains the same):</p>
+<ul>
+<li><strong>Correct</strong>: Any SDG is detected by a maximum of only 2 submodels</li>
+<li><strong>Not sure</strong>: 3 submodels have identified the same SDG(s)</li>
+<li><strong>Incorrect</strong>: 4 or more submodels are positive on at least one SDG</li>
+</ul>
+<p>How the responses are being taken into account in labeling the training data is explained in <a href="#42-captcha-responses">Section 4.2</a>.</p>
+<h2 id="3-ensemble-approach">3. Ensemble Approach </h2>
+<p>The classification system classifies a patent text based on 16 out of the 17 SDGs. SDG 17 ('Partnerships for the goals') has been left out as this goal does not reflect any particular research area or application for patentable technology. Each patent can include multiple SDGs.</p>
+<p>To create a classification model specifically for labeling SDGs in patent data, an ensemble model has been set up largely following the approach of <a href="https://doi.org/10.1007/s11625-024-01516-3">Wulff et al.</a> combining multiple SDG classification models. The authors demonstrated that the ensemble approach was able to achieve higher specificity and sensitivity compared to all individual SDG labeling systems. The ability to tailor the ensemble model to a given use case, in this context the labeling of patent data, makes it a very suitable approach for the current classification problem.</p>
+<p>A few changes have been made to the ensemble approach in comparison to the method of <a href="https://doi.org/10.1007/s11625-024-01516-3">Wulff et al.</a>. The new ensemble method is based on 8 instead of 7 existing classification models, to improve performance; next to the same 6 query models, the <code>sdgBERT</code> classifier and <code>Mistral</code> LLM have been added, while the <code>OSDG</code> system has been removed due to inaccessibility. A short description of all eight classification submodels is given below.<br>
+The patent ensemble models have been trained using the extreme gradient boosting algorithm of <code>XGBoost</code> instead of random forests; performance of both algorithms was reported to be similar, but an important advantage of the <code>XGBoost</code> library in this case is that it supports incremental learning, meaning the ensemble model can be trained on only new data becoming available over time from CAPTCHAs while retaining its learnings from older data.</p>
+<h3 id="31-query-models">3.1 Query Models </h3>
+<p>Six query models have been used in classification:</p>
+<ul>
+<li><code>auckland</code>: <a href="https://doi.org/10.21203/rs.3.rs-2544385/v2">University of Auckland</a></li>
+<li><code>aurora v5.0</code>: <a href="https://doi.org/10.5281/zenodo.3817445">Aurora Universities Network</a></li>
+<li><code>elsevier v1</code>: <a href="https://doi.org/10.17632/87txkw7khs.1">Elsevier SDGs Mapping</a></li>
+<li><code>sdgo</code>: Open Source SDG</li>
+<li><code>sdsn</code>: <a href="https://ap-unsdsn.org/regional-initiatives/universities-sdgs/">Sustainable Development Solutions Network</a></li>
+<li><code>siris v1.2</code>: <a href="https://zenodo.org/record/3567769">SIRIS Academic</a></li>
+</ul>
+<p>These models determine the presence of an SDG by relying on Lucene-style queries to detect keywords and apply syntax-based Boolean operations, wildcards and proximity searches. All six models have been introduced as standalone systems to identify the SDGs from academic research papers, but suffer from severe shortcomings when applying them seperately to patent abstracts (<a href="#43-model-performance">Model Performance</a>). Since <a href="https://doi.org/10.1007/s11625-024-01516-3">Wulff et al.</a> demonstrated that ensemble modeling was able to overcome limitations related to different text sources, and these query models made up 6 of the 7 implemented submodels, the query strings were adopted directly from the R package of the ensemble approach. To interpret the queries in the Python backend of the patent classification app (<a href="Source%20Code/Classification%20App"><code>sdg_matrix.py</code></a>), the syntax is parsed by <code>Lark</code> and the searches are performed using <code>Elasticsearch</code>.</p>
+<h3 id="32-sdgbert">3.2 sdgBERT </h3>
+<p>To introduce a more advanced model compared to the relatively straightforward query models, a BERT language model is introduced. In contrast to query models, BERT can structurally take the context of a text into account by transforming text into a sequency of vectors, and is therefore an important tool for natural language processing and LLMs. The transformer-based SDG classification model <code>sdgBERT</code> (109M parameters) from <a href="https://huggingface.co/sadickam/sdg-classification-bert">Deakin University</a> is implemented as the BERT model. Although multiple pre-trained BERT-based SDG classification models are available, this model was chosen because it has a reported accuracy of 0.90, it was made in an academic context, and it is the most-used SDG classification model from the popular ML model library Hugging Face.</p>
+<p>An important limitation of this model, however, is that it returns the relative probabilities of the first 16 SDGs in relation to each other instead of the probability of their presence in the text, meaning that the sum of all 16 probabilities is always one despite the presence and number of SDGs in the text. Therefore it is not possible to reconstruct the actual (number of) SDGs it detects in the text. To take the outcome along in the ensemble approach, the probabilities are treated very conservatively: an SDG is only considered to be present with a probability of 0.95 or higher, meaning only one SDG can be detected per patent, implying a low sensitivity and high specificity. This limitation is the main reason for the low <code>sdgBERT</code> F1 scores reported under <a href="#43-model-performance">Model Performance</a>.<br>
+An advantage of the relative probabilities of SDGs to each other is that the <code>sdgBERT</code> outcome is useful for determining the most relevant SDGs to display in the <a href="#22-captcha-tests">CAPTCHA tests</a>.</p>
+<h3 id="33-mistral-llm">3.3 Mistral LLM </h3>
+<p>With the popularity and rapid advancements of large language models (LLMs) such as ChatGPT, Gemini and Mistral, an obvious approach is to ask an LLM to perform the classification task. To test the performance of a modern LLM, patents are classified using <a href="https://mistral.ai/news/mistral-small-3-1"><code>Mistral Small 3.1</code></a>. This LLM is chosen because it is a European (French) lightweight open-source model which performs excellent for its weight class. Since the energy footprint of large LLMs is increasingly becoming a concern for sustainable development, the energy savings over time by using such a smaller LLM could be considerable in case of relatively simple repetitive tasks like text classification. Even though this model is considered lightweight for an LLM, it still consists of 24B parameters compared to 109M parameters for the BERT language model. Since the web server of the classification app does not have the performance to run the LLM directly, the requests are submitted to Mistral's La Plateforme using a free API key. For local deployment of the web environment, a personal API key can be requested <a href="https://console.mistral.ai/">here</a>.</p>
+<p>To label the SDGs using the LLM, the patent is processed by two subsequent system prompts. The first prompt is used to summarize the patent use in one sentence. The patent abstract is used as user prompt, while the system prompt reads:</p>
+<p><code>Describe the application of the invention described in the patent abstract, including any environmental, social and economic aspects. The summary should be in a single sentence, and should not exceed 50 words. Do not mention that the summary concerns an invention or patent, and avoid technical details and demonstrative pronouns. The summary should be clear and concise, and should be suitable for a general audience.</code></p>
+<p>The invention is first summarized in one sentence to avoid differences in subsequently identied SDG labels caused by variations in length and structure of the original patent abstracts. For the training data, the resulting sentences are also used as the patent descriptions for which a corresponding SDG should be selected in the CAPTCHAs.<br>
+The single sentence is used as user prompt within the LLM classification task. This task is described in the system prompt as follows:</p>
+<p><code>Report a maximum of six SDGs that are most relevant to the text. See below for SDG descriptions. Use Python list format and report only the SDG number(s). If you detect no SDGs, report [0].</code></p>
+<p><code>SDG 1: End poverty in all its forms everywhere</code>, followed by the other SDG descriptions as used on the <a href="https://sdgs.un.org">UN SDGs frontpage</a></p>
+<h2 id="4-model-training">4. Model Training </h2>
+<h3 id="41-training-data">4.1 Training Data </h3>
+<p>The patent data used to train the SDG classification model is derived from the EP Full Text Library (EPAB). The abstract fields of all patents in the test environment with an indexed English abstract (3113 publications) have been evaluated by the nine SDG classification models and are taken along for labeling within the (random) rotation of the CAPTCHA app. Patent abstracts have been considered since the abstract field is where typically the practical use of the patent is described.</p>
+<p>The current model implemented in the web interface is based on 2094 manual ratings; to ensure an even distribution over the 16 SDGs in the initial dataset, every SDG has manual labels for at least 100 patents in which the SDG has been detected by at least 1 submodel. All training data is saved into a <code>pandas</code> DataFrame in <a href="Supporting%20Materials%20and%20Tools/Training%20Data"><code>training_data.pkl</code></a>. The frequency at which each SDG has been detected by the 8 submodels is displayed in the bar graph below (generated by <a href="Supporting%20Materials%20and%20Tools/Training%20Data"><code>plot_sdg_model_frequencies.py</code></a>):</p>
+<p><img src="Supporting%20Materials%20and%20Tools/Training%20Data/sdg_model_frequencies.png" alt="SDG-Model Frequence Plot"></p>
+<h3 id="42-captcha-responses">4.2 CAPTCHA Responses </h3>
+<p>All CAPTCHA responses in the web application are tracked in the SQLite database <code>captcha_responses.db</code> on the server, and the statistics of the manual labels in the training data are updated by processing the answers using <a href="Supporting%20Materials%20and%20Tools/CAPTCHA%20Responses"><code>update_testenv_from_responses.py</code></a>. For every response in which an SDG is selected, a positive vote for that SDG is added to the patent in case the answer is not considered 'incorrect' <a href="#22-captcha-tests">according to the test</a> (otherwise the answer is ignored to maintain data quality). In case no SDG is selected, all nine displayed SDGs are counted as negative for the related patent. The relative weights assigned to the binary labels in the gradient boosting algorithm are defined as the product of the consensus and number of responses, favouring the most reliable answers in training the ensemble model.</p>
+<h3 id="43-model-performance">4.3 Model Performance </h3>
+<p>Performance of the eight classification submodels and the tuned ensemble models with and without the Mistral model has been evaluated by the F1 score following stratified 5-fold cross-validation (<a href="Supporting%20Materials%20and%20Tools/Model%20Performance"><code>performance_analysis.py</code></a>) to get the general predictive performance, balancing precision and sensitivity, when applying it to new data. The heatmap of F1 scores by model and SDG is shown below. The rightmost column shows the F1 scores of the best-performing model per SDG, and reflects the performance of the SDG classification results as returned by the <a href="https://codefest.thomasanijs/com">web app</a>.</p>
+<p><img src="Supporting%20Materials%20and%20Tools/Model%20Performance/f1_heatmap.png" alt="F1 Heatmap"></p>
+<h2 id="5-conclusions">5. Conclusions </h2>
+<p>Important conclusions which can be drawn from the current SDG classification solution:</p>
+<ul>
+<li>
+<p>The implemented ('best') model has <strong>good overall performance</strong> with a mean F1 of 0.715</p>
+<ul>
+<li>SDGs 1 ('No Poverty') and 16 ('Strong Institutions') perform poorly (F1&lt;0.5), likely because of the small number of positives in the labeled training data. Following more CAPTCHA responses, <strong>model performance can increase over time</strong></li>
+</ul>
+</li>
+<li>
+<p>Out of the individual classification models, the <strong>Mistral LLM clearly scores the highest</strong> (F1: 0.61)</p>
+<ul>
+<li><strong>All other single classification models score very poorly</strong> (F1&lt;0.4) on balancing precision and recall in patent data</li>
+</ul>
+</li>
+<li>
+<p>The <strong>full ensemble model outperforms all submodels</strong>, but the difference with only using Mistral is quite small (F1 0.69 vs. 0.61)</p>
+<ul>
+<li>Because of the nature of the patent data and classification task, performance increase levels off for well-performing models</li>
+</ul>
+</li>
+<li>
+<p>The <strong>ensemble model without Mistral outperforms the Mistral LLM</strong> on average and for 9 out of the 16 SDGs, demonstrating the true benefit of the ensemble approach</p>
+<ul>
+<li>The ensemble model is able to combine simple models which perform poorly by themselves into a reliable model which outperforms a computationally expensive LLM</li>
+<li>The ensemble model without Mistral can act as a <strong>much more energy-efficient alternative to using an LLM</strong>, with similar performance for this classification task</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-acknowledgements">6. Acknowledgements </h2>
+<p>Wulff, D. U., Meier, D. S., &amp; Mata, R. (2024). Using novel data and ensemble models to improve automated labeling of Sustainable Development Goals. Sustainability Science. <a href="https://doi.org/10.1007/s11625-024-01516-3">https://doi.org/10.1007/s11625-024-01516-3</a></p>
+<p>Sadick, A.M. (2023). SDG classification with BERT. <a href="https://huggingface.co/sadickam/sdg-classification-bert">https://huggingface.co/sadickam/sdg-classification-bert</a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

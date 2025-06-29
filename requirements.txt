@@ -1,0 +1,70 @@
+# Comprehensive Requirements for CFS25-Thomas-Anijs Project
+# This file consolidates all Python dependencies used across all subfolders
+
+# Web Framework
+Flask==2.3.3
+Flask-CORS==4.0.0
+
+# Machine Learning Core
+scikit-learn==1.3.0
+xgboost==1.7.6
+numpy==1.24.3
+pandas==2.0.3
+
+# Deep Learning and Transformers
+torch==2.0.1
+transformers==4.30.2
+
+# Data Visualization
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Database
+sqlite3  # Built-in Python module
+
+# Search and Information Retrieval
+elasticsearch==8.8.2
+
+# Parsing
+lark==1.1.7
+
+# AI/LLM Integration
+mistralai==0.1.8
+
+# Utility Libraries
+requests==2.31.0
+urllib3==2.0.4
+certifi==2023.7.22
+
+# Development and Testing
+pytest==7.4.0
+pytest-cov==4.1.0
+
+# File Processing
+openpyxl==3.1.2  # For Excel file handling
+python-docx==0.8.11  # For Word document processing
+
+# Optional: Jupyter for development
+jupyter==1.0.0
+notebook==7.0.2
+
+# Web Scraping (if needed)
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# Progress bars and utilities
+tqdm==4.65.0
+
+# Configuration management
+python-dotenv==1.0.0
+
+# Date/time handling
+python-dateutil==2.8.2
+
+# Text processing
+nltk==3.8.1
+spacy==3.6.1
+
+# Model serialization
+joblib==1.3.2
+pickle5==0.0.12  # For Python < 3.8 compatibility
