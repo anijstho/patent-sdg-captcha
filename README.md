@@ -46,13 +46,13 @@ The source code of both web applications is shared in the [Source Code](/Source%
 
 ### 2.1 SDG Classification Model
 
-You can use the latest SDG classification model by providing a patent description on the [classification web app at codefest.thomasanijs.com](https://codefest.thomasanijs.com). The model will then return the final SDGs it has identified from the text input based on the nine underlying SDG classification model outcomes following the [Ensemble Approach](#3-ensemble-approach). The web application will give the most reliable outcome when provided an English patent abstract of around 50 to 200 words, since the model is specifically trained on this type of patent data (see [Training Data](#41-training-data)).
+You can use the latest SDG classification model by providing a patent description on the classification web app (_currently offline_). The model will then return the final SDGs it has identified from the text input based on the nine underlying SDG classification model outcomes following the [Ensemble Approach](#3-ensemble-approach). The web application will give the most reliable outcome when provided an English patent abstract of around 50 to 200 words, since the model is specifically trained on this type of patent data (see [Training Data](#41-training-data)).
 
 The text is being analysed in ten steps, with the process being indicated live in the terminal output. The steps consist of processing eight SDG classification submodels, applying the [ensemble model](#3-ensemble-approach), and extracting the [most predictive](#43-model-performance) model outcomes, respectively. Due to limited capabilities of the current web server, the classification process can take a few minutes depending on the length of the text input.
 
 ### 2.2 CAPTCHA Tests
 
-A key feature of the implemented approach is that the classification model iteratively evolves by using new CAPTCHA answers as additional training input. Everyone can contribute to patent labeling by classifying existing patent abstracts through [CAPTCHA tests on captcha.thomasanijs.com](https://captcha.thomasanijs.com).
+A key feature of the implemented approach is that the classification model iteratively evolves by using new CAPTCHA answers as additional training input. Everyone can contribute to patent labeling by classifying existing patent abstracts through dedicated online CAPTCHA tests (_currently offline_).
 
 The CAPTCHA tests try to identify whether you are a human or robot based on consensus of your answer with the outcome of the 8 classification submodels. You are requested to select an SDG belonging to the displayed prompt, which describes the practical use of a patent from the [training data](#41-training-data) as extracted by the [Mistral LLM](#33-mistral-llm).
 
